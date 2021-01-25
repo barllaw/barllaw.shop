@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap&subset=cyrillic-ext')
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap')
+$main_c: #52616b
+$header_c: #ffffffcc
+$light_c: #5c5d58
+$text: #d4d6c8
+$trn: .55s
+$error: #ff6161
+$success: #62d07a
+$light_gray: #f5f5f5
+$footer_bg: #2b2b2b 
+
+*
+    margin: 0
+    padding: 0
+    outline: none
+    box-sizing: border-box
+p, h1, h2, h3, h4, h5, h6
+    color: #333
+body, html
+    font-size: 14px
+    font-family: 'Montserrat', sans-serif
+    font-weight: 400
+    color: #333
+    font-weight: 400
+    background: #fff
+    height: 100%
+.over_hide
+    overflow: hidden
+
+select, option
+    -webkit-appearance: none
+    appearance: none
+
+.mobile_header, .mobile_menu
+    display: none
+
+#error
+    text-align: center
+    background: $error
+    margin: 15px auto
+    letter-spacing: .5px
+    color: #fff
+    font-size: 13px
+    transition: .25s
+    padding: 0 15px
+
+img 
+    max-width: 100%
+
+a 
+    color: #000
+    text-decoration: none
+    transition: all 0.6s ease
+a:hover 
+    color: #000
+    transition: all 0.6s ease
+
+.container 
+    padding-right: 15%
+    padding-left: 15%
+
+.btn 
+    background: $main_c
+    border-radius: 1px
+    border: 0
+    font-size: 11px
+    color: #fff
+    cursor: pointer
+    transition: all 600ms ease
+    padding: 15px 25px
+    text-align: center
+    letter-spacing: 1px
+    text-transform: uppercase
+    font-weight: bold
+    &:hover
+        transition: all 600ms ease
+        box-shadow: 0px 5px 10px -2px rgba(0,0,0,0.3)
+        background: lighten($main_c, 10)
+
+.btn_second
+    padding: 5px 15px
+    text-align: center
+    background: $light_gray
+    letter-spacing: 1px
+    color: #333
+    border: none
+    cursor: pointer
+
+input[name='made_in'],input[name='name'],input[name='lastname'],input[name='father'],input[name='city']
+    text-transform: capitalize
+
+.price
+    font-weight: bold
+    font-size: 15px
+    color: #555
+header
+    .main_header
+        background: $main_c
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding-top: 15px
+        padding-bottom: 15px
+        .logo
+            display: flex
+            justify-content: space-between
+            align-items: center
+            img
+                width: 75px
+                margin-right: 40px
+            .nav
+                ul
+                     li
+                        list-style: none
+                        display: inline
+                        padding: 25px 5px
+                        a
+                            margin: 0 10px
+                            color: $header_c
+                            font-weight: bold
+                            letter-spacing: 1px
+                        .drop-menu
+                            width: 100%
+                            position: absolute
+                            padding-top: 30px
+                            padding-bottom: 30px
+                            background: darken($main_c, 5)
+                            color: 
+                            top: 85px
+                            left: 0px
+                            z-index: 3
+                            grid-gap: 30px
+                            display: none
+                            p 
+                                margin-top: 5px
+                                a
+                                    font-weight: normal
+                                    padding-left: 5px
+                                    color: $header_c
+                                    font-size: 13px
+                                    &:hover
+                                        color: #fff
+                            .drop-menu-title a
+                                font-weight: bold
+                                font-size: 15px
+                                margin-bottom: 10px 
+                                display: inline-block   
+                                color: $header_c
+                                &:hover
+                                    color: #fff
+                        &:hover
+                            background: darken($main_c, 5)
+                            border-radius: 5px 5px 0px 0px
+
+        a
+            margin: 0 10px
+            i
+                font-size: 18px
+                color: $header_c
+                transition: $trn
+                &:hover
+                    transition: $trn
+                    transform: scale(1.1)
+        .social a i
+            font-size: 25px
+
+.main
+    display: flex
+    flex-direction: column
+    justify-content: center
+    h2
+        padding-left: 150px
+    .main_banners
+        margin-top: 20px
+        padding: 0 5%
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        grid-gap: 20px
+        .product-banner
+            perspective: 1000px
+            transform-style: preserve-3d
+            height: 600px
+            width: 100%
+            display: flex
+            justify-content: center
+            align-items: center
+            .banner-item
+                width: 100%
+                height: 100%
+                overflow: hidden
+                transition: all .25s
+                position: relative
+                &:hover
+                    box-shadow: 0 0 15px lighten($main_c, 15)
+                a 
+                    display: block
+                    height: 100%
+                    width: 100% 
+                    img
+                        object-fit: cover
+                        height: 100%
+                        width: 100%
+                &::before
+                    position: absolute
+                    font-weight: bold
+                    font-size: 26px
+                    padding: 10px 15px
+            &:nth-child(1)
+                .banner-item::before
+                    content: 'The North Face'
+                    color: #ffffff
+                    left: 5%
+                    top: 7%
+                    background: #333333
+            &:nth-child(2)
+                display: none
+                .banner-item::before 
+                    content: 'Худи'
+                    color: #ffffff
+                    left: 5%
+                    bottom: 7%
+                    background: #cbbeb0
+            &:nth-child(3) 
+                .banner-item::before
+                    content: 'Джинсы'
+                    color: #444
+                    left: 5%
+                    top: 7%
+                    background: #f2f2f2
+            &:nth-child(4) 
+                .banner-item::before
+                    content: 'Кроссовки'
+                    color: #333
+                    left: 5%
+                    top: 7%
+                    background: #fff
+
+
+.mobile_footer
+    display: none
+footer 
+    background: $footer_bg
+    display: grid
+    grid-template-columns: 1fr 2fr 
+    grid-gap: 100px
+    padding: 40px 5%
+    color: $light_gray
+    .f_title
+        font-weight: bold
+        font-size: 20px
+    .left
+        text-align: center
+        font-weight: bold
+        div
+            margin: 10px 0
+        img
+            height: 100px
+    a
+        color: darken($light_gray, 15)
+        font-weight: normal
+        font-size: 13px
+        &:hover
+            color: $light_gray
+        i
+            font-size: 26px
+    .middle, .right
+        padding-top: 30px
+        p
+            margin: 5px 0 
+    .right
+        display: none
+    .middle
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        .f_title
+            grid-column-start: 1
+            grid-column-end: 4
+            grid-row-start: 1
+            grid-row-end: 2
+.favorites-icon
+    z-index: 2
+    cursor: pointer
+    position: absolute
+    background: #ffffffdd
+    border-radius: 50%
+    width: 25px
+    height: 25px
+    display: flex
+    justify-content: center
+    align-items: center
+    right: 5px
+    top: 5px
+    transition: $trn
+    &:hover
+        background:#ffffff
+
+
+
+
+
+
+
+
+@import 'categories.sass'
+@import 'form.sass'
+@import 'slick.sass'
+@import 'product.sass'
+@import 'basket.sass'
+@import 'user.sass'
+
+@media (max-width: 1024px)
+    .container
+        padding-left: 5%
+        padding-right: 5%
+    header 
+        height: 50px
+        .main_header
+            display: none
+    header .mobile_header
+        display: flex
+        justify-content: space-between
+        align-items: center
+        background: $main_c
+        color: $header_c
+        position: fixed
+        width: 100%
+        z-index: 4
+        top: 0
+        left: 0
+        padding-top: 5px
+        .header_left
+            display: flex
+            justify-content: center
+            align-items: center
+            .burger
+                display: flex
+                justify-content: center
+                align-items: center
+                height: 100px
+                width: 80px
+                margin-right: 20px
+                z-index: 4
+                i
+                    font-size: 28px
+                i.fa-times
+                    display: none
+            .logo
+                img
+                    height: 75px
+        .user-wrap
+            a
+                color: $header_c
+                font-size: 28px
+                margin: 0 15px
+
+    .mobile_menu
+        position: fixed
+        padding-top: 100px
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        z-index: 3
+        font-size: 18px
+        transition: $trn
+        display: block
+        visibility: hidden
+        overflow: hidden
+
+        .mobile_menu_bg
+            overflow: hidden
+            visibility: hidden
+            opacity: 0
+            background: #3a46524d
+            width: 100%
+            height: 100%
+        .nav
+            display: block
+            overflow: scroll
+            height: 100%
+            width: 350px
+            background: #fff
+            transform: translateX(-100%)
+            transition: $trn
+
+            .top a
+                background: $main_c
+                padding: 15px 0px
+                text-transform: uppercase
+                display: block
+                font-weight: bold
+                text-align: center
+                color: $header_c
+            .mobile_cat-wrap
+                background: $header_c
+                h3
+                    background: darken($header_c, 10)
+                    padding: 15px 45px
+                    text-transform: uppercase
+                ul
+                    li
+                        list-style-type: none
+                        a
+                            padding: 10px 55px
+                            display: block
+                    .sub_cat-title a
+                        font-weight: bold
+                        background: darken($header_c, 5)
+                        padding-left: 50px
+    .show_mobile_menu
+        overflow: visible
+        visibility: visible
+        .mobile_menu_bg
+            opacity: 1
+            overflow: visible
+            visibility: visible
+            position: absolute
+        .show_nav
+            transform: translateX(0)
+
+    .main
+        min-height: 70%
+        .main_banners 
+           .product-banner
+             height: 500px
+    .main-wrapper
+        h2
+        .main_slider
+            .slider__item
+                height: 250px
+                a
+                    .image
+                        img
+                        .title
+                            height: 50px
+    footer
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: 25px
+@media (max-width: 768px)
+    .main 
+        h2
+            padding-left: 50px
+        .main_banners
+            .product-banner
+                height: 350px
+    .main-wrapper
+        h2
+        .main_slider
+            .slider__item
+                height: 200px
+                a
+                    .image
+                        img
+                        .title
+            .slick-arrow
+                display: none
+    footer
+        font-size: 16px
+        .f_title
+                font-size: 18px
+    
+@media (max-width: 414px)
+    header 
+        .mobile_header 
+            .header_left 
+                .burger
+                    height: 50px
+                    width: 50px
+                    i    
+                        font-size: 18px
+                .logo
+                    a
+                        img
+                            height: 40px
+            .user-wrap
+                a
+                    font-size: 18px
+    .mobile_menu
+        padding-top: 50px
+        font-size: 14px
+        .nav
+            width: 280px
+            .nav a
+                font-size: 15px
+            .mobile_cat-wrap
+                h3
+                    padding: 15px 20px
+                    font-size: 15px 
+                ul 
+                    li a
+                        padding-left: 35px
+                    .sub_cat-title a
+                        padding-left: 30px
+                        font-size: 14px
+                    
+    .main
+        padding-top: 20px 
+        h2
+            font-size: 16px
+        .main_banners
+            grid-template-columns: repeat(2, 1fr)
+            .product-banner
+                height: 250px
+                .banner-item::before
+                    font-size: 16px
+                &:nth-child(2)
+                    display: block
+    .main-wrapper
+        h2
+        .main_slider
+            width: 100%
+            .slider__item
+                height: 200px
+    footer
+        display: none
+    .mobile_footer
+        display: flex
+        justify-content: space-between
+        align-items: center
+        background: $footer_bg
+        color: $header_c
+        padding: 10px 40px
+        .logo
+            img
+                width: 40px
+        .mobile_footer-center
+            text-transform: uppercase
+            font-size: 8px
+        .social-wrap
+            a
+                font-size: 20px
+                color: $header_c
+
+
+
+
+
+

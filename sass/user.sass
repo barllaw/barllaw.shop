@@ -1,0 +1,245 @@
+.admin-main
+    .right-side
+        .orders
+            .order
+                display: grid
+                grid-template-columns: 1fr 2fr 3fr 4fr 3fr
+                align-items: center
+                margin-bottom: 15px
+                box-shadow: 0 0 5px 2px #33333308
+                padding: 10px
+                .id
+                .img
+                    width: 75px
+                    img
+                        border-radius: 5px
+                .desc
+                .client
+                .row-end
+                    height: 100px
+                    display: flex
+                    flex-direction: column
+                    justify-content: space-between
+                    .status
+                        select
+                            border: none
+                            padding: 5px 10px
+                            cursor: pointer
+                    .date
+                        font-size: 13px
+                        letter-spacing: .5px
+                    .btn
+                        padding: 5px
+                        font-size: 10px
+                        cursor: pointer
+        .users
+            .users-wrap
+                .user
+                    display: grid
+                    grid-template-columns: 2fr 3fr 3fr
+                    align-items: center
+                    margin-bottom: 15px
+
+
+
+.profile-main
+    padding: 50px 20%
+    width: 100%
+    background: #dddddd10
+    h1
+        text-align: center
+    .profile-content
+        display: grid
+        grid-template-columns: 1fr 3fr
+        grid-gap: 30px
+        padding: 30px 0
+        .left-side
+            .welcome
+                padding: 40px 20px
+                font-size: 18px
+                box-shadow: 0 0 8px 2px #dddddd30
+                margin-bottom: 10px
+            ul
+                li
+                    list-style-type: none
+                    a
+                        display: inline-block
+                        background: #fff
+                        width: 100%
+                        box-shadow: 0 0 8px 2px #dddddd10
+                        margin-bottom: 10px
+                        padding: 15px
+                        align-items: center
+                        span
+                            margin-right: 5px
+                            width: 30px
+                            display: inline-block
+                            font-size: 18px
+                            position: relative
+                            top: 1px
+
+                        &:hover
+                            color: #000
+        .right-side
+            background: #fff
+            padding: 40px
+            box-shadow: 0 0 10px 2px #bbbbbb10
+
+            h2
+                margin: 0 0 30px 10px
+            .my-details
+                width: 50%
+                label
+                    font-size: 13px
+                    letter-spacing: .5px
+                input
+                    width: 100%
+                    background: none
+                    padding: 10px 15px
+                    font-size: 14px
+                    color: #333
+                    border: none
+                    border-bottom: 2px solid #33333320
+                    margin-bottom: 25px
+                    font-size: 15px
+            .my-orders
+                .empty
+                .user_orders
+                    .row
+                        display: grid
+                        grid-template-columns: 1fr 2fr 2fr 1fr
+                        align-items: center
+                        margin-bottom: 10px
+                        grid-gap: 15px
+                        img
+                            width: 100%
+                            border-radius: 5px
+                        .user_orders-desc
+                        span
+                        .row-end
+                            display: flex
+                            flex-direction: column
+                            justify-content: space-between
+                            height: 60px
+            .favorites
+                .favorites-empty
+                    min-height: 400px
+                    text-align: center
+                    p a
+                        text-align: center
+                        margin: auto
+                .favorites-wrap
+                    display: grid
+                    grid-template-columns: repeat(5, 1fr)
+                    grid-gap: 20px
+                    .fav_product
+                        position: relative
+                        .favorites-icon
+                            width: 18px
+                            height: 18px
+                            font-size: 10px
+                            z-index: 2
+                        a
+                            display: block
+                            height: 100%
+                            width: 100%
+                            .image
+                                display: flex
+                                flex-direction: column
+                                flex-wrap: wrap
+                                align-items: flex-start
+                                height: 180px
+                                img
+                                    width: 100%
+                                    height: 100%
+                                    object-fit: cover
+                            .desc
+                                display: flex
+                                flex-direction: column
+                                font-size: 13px
+                                h4
+                                    text-align: right
+
+.user-menu,.nothing
+    display: none
+@media (max-width: 1024px)
+    
+    .profile-main
+        padding: 20px 5%
+        .profile-content .right-side 
+            .favorites .favorites-wrap
+                grid-template-columns: repeat(4, 1fr)
+            .my-orders .user_orders .row
+                grid-template-columns: 1.5fr 2fr 1fr 1fr
+    
+@media (max-width: 414px)
+    .profile-main
+        position: relative
+        h1
+            font-size: 16px
+            text-align: left
+        .user-menu
+            text-align: center
+            font-size: 13px
+            position: absolute
+            top: 20px
+            right: 20px
+            padding: 5px 15px
+            display: block
+            background: $light_gray
+            letter-spacing: 1px
+
+        .profile-content 
+            grid-template-columns: 1fr
+            grid-gap: 0
+            .left-side 
+                transition: $trn
+                .welcome
+                    display: none
+                ul
+                    transition: $trn
+                    max-height: 0
+                    overflow: hidden
+                    margin-bottom: 0
+                    li
+                        a
+                            padding: 10px
+                            font-size: 13px
+                            margin: 0
+                            span
+                                font-size: 12px
+                .show-user-menu
+                    max-height: 100%
+                    margin-bottom: 20px
+            .right-side 
+                transition: $trn
+                padding: 20px
+                h2
+                    font-size: 14px
+                .my-details
+                    width: 100%
+
+                .favorites .favorites-wrap
+                    grid-template-columns: repeat(2, 1fr)
+                    .fav_product .favorites-icon
+                        width: 25px
+                        height: 25px
+                        font-size: 15px
+            .my-orders .user_orders .row
+                font-size: 12px
+                a
+                    width: 80%
+    .admin-main
+        padding: 20px 0%
+        h1
+            padding-left: 20px
+        .profile-content 
+            .right-side
+                padding: 10px 0
+                .orders .order .row-end .btn
+                    font-size: 11px
+                    padding: 7px
+            .orders .order
+                grid-template-columns: 1fr 3fr 3fr
+                .nothing
+                    display: block
