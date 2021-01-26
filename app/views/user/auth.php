@@ -11,7 +11,7 @@ require_once 'public/blocks/head.php'; ?>
 <body>
 <?php require_once 'public/blocks/header.php'; ?>
 
-<div class="container user-main">
+<div class="container user-main content">
     <h1>Вход</h1>
     <form action="" method="post" class="form-control">
         <input value="admin" type="text" id="login" placeholder="Логин"><br>

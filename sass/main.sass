@@ -152,7 +152,84 @@ header
                         &:hover
                             background: darken($main_c, 5)
                             border-radius: 5px 5px 0px 0px
+        .search-wrap
+        
+                
+        .user-wrap
+            display: flex
+            justify-content: flex-end
+            width: 40%
+            align-items: center
+            padding: 0 5% 0 0
+            .search-box
+                position: relative
+                height: 30px
+                display: flex
+                align-items: center
+                justify-content: flex-end
+                transition: $trn
+                width: 0px
+                margin-right: 40px
+                input
+                    height: 100%
+                    width: 0%
+                    border: none
+                    background: #fff
+                    font-size: 13px
+                    transition: $trn
+                    opacity: 0
+                    z-index: 1
+                    border-bottom: 2px solid #dddddd
+                input.active 
+                    width: 100%
+                    padding: 0 20px
+                    opacity: 1
+                .show-search-btn
+                    opacity: 1
+                    visibility: visible
+                    z-index: 2
+                .search-btn
+                    opacity: 0
+                    visibility: hidden
+                    z-index: -1
+                .search-btn,.show-search-btn
+                    transform: translate(-10px, -45%) rotate(0deg)
+                .cancel-btn
+                    opacity: 0
+                    visibility: hidden
+                .search-btn,.cancel-btn,.show-search-btn
+                    position: absolute
+                    top: 50%
+                    right: 0
+                    transform: translate(-10px, -45%) rotate(0)
+                    cursor: pointer
+                    transition: $trn
 
+                    i
+                        font-size: 18px
+                        color: $header_c
+                        transition: $trn
+                        &:hover
+                            transition: $trn
+                            transform: scale(1.1)
+                .search-btn.active
+                    z-index: 2
+                    opacity: 1
+                    visibility: visible
+                    transform: translate(-10px, -45%) rotate(360deg)
+                    i
+                        color: #333
+                        font-size: 13px
+                .show-search-btn.active
+                    transform: translate(-10px, -45%) rotate(360deg)
+                    opacity: 0
+                    visibility: hidden
+                .cancel-btn.active
+                    transform: translate(20px, -45%) rotate(360deg)
+                    opacity: 1
+                    visibility: visible
+            .search-box.active
+                width: 100%
         a
             margin: 0 10px
             i
@@ -295,7 +372,22 @@ footer
     &:hover
         background:#ffffff
 
-
+.notfound_product
+    min-height: 60vh
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding-top: 50px
+    width: 100%
+    h2
+        padding: 0
+    h3
+        margin: 20px 0
+    a
+        font-weight: 400
+        display: inline-block
+        border-bottom: 2px solid #52616b
+        padding: 5px 25px
 
 
 

@@ -2,7 +2,7 @@
     <div class="left f_block">
         <div><img src="/public/img/logo_transparent.png" alt=""></div>
         <div>Магазин одежды</div>
-        <div><a href="mailto:mail@barllaw.shop">mail@barllaw.shop</a></div>
+        <!-- <div><a href="mailto:mail@barllaw.shop">mail@barllaw.shop</a></div> -->
         <div><a href="https://www.instagram.com/barllaw.shop/" target="_blank"><i class="fab fa-instagram"></i></a></div>
     </div>
     <div class="middle f_block">

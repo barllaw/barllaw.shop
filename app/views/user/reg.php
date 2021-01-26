@@ -11,7 +11,7 @@ require_once 'public/blocks/head.php'; ?>
 <body>
 <?php require_once 'public/blocks/header.php'; ?>
 
-<div class="user-main">
+<div class="user-main content">
     <h1>Регистрация</h1>
     <form action="" method="post" class="form-control">
         <input type="text" id="name" placeholder="Имя" value="<?=$_POST['name']?>"><br>

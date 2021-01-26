@@ -7,7 +7,7 @@ require_once 'public/blocks/head.php'; ?>
 <?php require_once 'public/blocks/header.php';
 ?>
 
-<div class="basket-main">
+<div class="basket-main content">
     
 
         <?php if(!isset($_SESSION['cart'])):?>

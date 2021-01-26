@@ -6,7 +6,7 @@ require_once 'public/blocks/head.php'; ?>
 <body>
 <?php require_once 'public/blocks/header.php'; ?>
 
-<div class="main">
+<div class="main content">
     <!-- <h2>Популярные категории</h2> -->
     <div class="main_banners">
         <div class="product-banner">

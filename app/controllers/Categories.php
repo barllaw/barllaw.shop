@@ -6,10 +6,16 @@ class Categories extends Controller
     
     public function index($id = '')
     {
-        
+        $products = $this->model('Products');
+
+        if($_POST['search']){
+            exit($products->getIdWithArt($_POST['art']));
+        }
+
         $data['page'] = 'clothes';
         $data['title'] = 'Одежда';
         $this->view('categories/index', $data);
+
 
         
     }
@@ -177,7 +183,6 @@ class Categories extends Controller
         $this->view('categories/index', $data);
 
     }
-
 
     public function checkFavoriteProduct($array)
     {

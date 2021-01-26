@@ -14,7 +14,7 @@ require_once 'public/blocks/header.php';
 
 if($_COOKIE['login'] == 'admin'):
 ?>
-<div class="profile-main admin-main">
+<div class="profile-main admin-main content">
     <h1>Admin</h1>
     <div id="user_menu_btn" class="user-menu btn_second">
         Меню
@@ -148,7 +148,7 @@ if($_COOKIE['login'] == 'admin'):
     
 </div>
 <?php else:?>
-<div class="profile-main">
+<div class="profile-main content">
     <h1>Мой профиль</h1>
     <div id="user_menu_btn" class="user-menu btn_second">
         Меню

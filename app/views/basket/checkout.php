@@ -6,7 +6,7 @@ require_once 'public/blocks/head.php'; ?>
 <body>
 <?php require_once 'public/blocks/header.php';?>
 
-<div class="basket-main">
+<div class="basket-main content">
     
 <?php if($data['success'] == 'true'):?>
 

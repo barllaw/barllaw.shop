@@ -473,3 +473,38 @@ $('#new_product').click(function(e){
     })
     
 })
+
+$('#search_btn').click(function(){
+    
+    art = $('#search_art').val();
+
+    if(art == ''){
+        $('#search_art').css('border-bottom', '2px solid #ff6161');
+        return;
+    }
+
+    $.ajax({
+        url: '/categories/',
+        type: 'POST',
+        data: {
+            'search': true,
+            'art': art
+        },
+        chache: false,
+        success: function(response){
+            if(response != ''){
+                $(location).attr('href','/product/'+response);
+            }else{
+                $('.content').html(`
+                <div class='notfound_product'>
+                    <h2><i class="fas fa-tshirt"></i></h2>
+                    <h3>Товар не найдено</h3>
+                    <a href="/">На главную</a>
+                </div>
+                `)
+            }
+        }
+        
+    })
+    
+})

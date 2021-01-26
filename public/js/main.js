@@ -205,3 +205,25 @@ $('#images').change(function() {
 $('#new_product_form input[type="text"]').change(function(){
     $(this).removeClass('require');
 })
+
+//Search animation
+
+const searchBtn = $('.search-btn')
+const cancelBtn = $('.cancel-btn')
+const searchBox = $('.search-box')
+
+$('.show-search-btn').click(function(){
+    $('.search-box').addClass('active');
+    $('.search-box input').addClass('active');
+    $('.search-box .search-btn').addClass('active');
+    $('.search-box .cancel-btn').addClass('active');
+    $(this).addClass('active');
+})
+$('.search-box .cancel-btn').click(function(){
+    $('.search-box').removeClass('active');
+    $('.search-box input').removeClass('active');
+    $('.search-box .search-btn').removeClass('active');
+    $(this).removeClass('active');
+    $('.show-search-btn').removeClass('active');
+})
+

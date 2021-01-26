@@ -7,7 +7,7 @@ require_once 'public/blocks/head.php'; ?>
 <?php require_once 'public/blocks/header.php'; ?>
 
 <?php if($data['page'] == 'clothes'): ?>
-<div class="main-clothes">
+<div class="main-clothes content">
     <div class="categories_banners">
         <div class="product-banner">
             <div class="banner-item">
@@ -49,7 +49,7 @@ require_once 'public/blocks/head.php'; ?>
 
 <?php else: ?>
 
-<div class="container products-main">
+<div class="container products-main content">
     <h2><?=$title?></h2>
     <div id="cat-mobile-btn" class="cat-mobile-btn btn_second">Категории</div>
     <?php if($data['page'] == 'Верхняя одежда'):?>

@@ -8,7 +8,7 @@ require_once 'public/blocks/head.php'; ?>
 require_once 'public/blocks/header.php';
 ?>
 
-<div class="product-main">
+<div class="product-main content">
     <div class="wrapper">
         <?php 
             $img = explode(',',$data['img_path']);

@@ -119,6 +119,13 @@ class Products
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getIdWithArt($art)
+    {
+        $result = $this->_db->query("SELECT `id` FROM `products` WHERE `art` = '$art' ");
+        $result = $result->fetch(PDO::FETCH_ASSOC);
+        return $result['id'];
+    }
+
     
 
 }
