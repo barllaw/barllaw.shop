@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php 
-$title = 'Заказ оформлен';
+$title = 'Оформить заказ';
 require_once 'public/blocks/head.php'; ?>
 <body>
 <?php require_once 'public/blocks/header.php';?>
@@ -33,7 +33,7 @@ require_once 'public/blocks/head.php'; ?>
         <label for="city">Город</label>
         <input id="city" name="city" type="text" value="<?=$_COOKIE['city']?>">
         <label for="poshta">Отделение Новой Почты</label>
-        <input id="poshta" name="poshta" type="text" value="">
+        <input id="poshta" name="poshta" type="number" value="" pattern="^[0-9]+$">
         <label for="email">Email</label>
         <input id="email" name="email" type="email" value="<?=$_COOKIE['email']?>">
         <label for="instagram">Instagram</label>

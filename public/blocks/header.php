@@ -15,6 +15,15 @@
         </div>
 
         <div class="user-wrap">
+            <div class="search-box">
+
+                <input id='search_art' type="text" placeholder='Поиск по артикулу...'>
+
+                <div class="show-search-btn"><i class="fas fa-search"></i></div>
+                <div class="search-btn" id='search_btn'><i class="fas fa-search"></i></div>
+                <div class="cancel-btn"><i class="fas fa-times"></i></div>
+
+            </div>
             <a href="/basket"><i class="fas fa-shopping-cart"></i></a>
             <?php 
                 if($_COOKIE['login']){

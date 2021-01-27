@@ -152,84 +152,13 @@ header
                         &:hover
                             background: darken($main_c, 5)
                             border-radius: 5px 5px 0px 0px
-        .search-wrap
-        
-                
         .user-wrap
             display: flex
             justify-content: flex-end
             width: 40%
             align-items: center
             padding: 0 5% 0 0
-            .search-box
-                position: relative
-                height: 30px
-                display: flex
-                align-items: center
-                justify-content: flex-end
-                transition: $trn
-                width: 0px
-                margin-right: 40px
-                input
-                    height: 100%
-                    width: 0%
-                    border: none
-                    background: #fff
-                    font-size: 13px
-                    transition: $trn
-                    opacity: 0
-                    z-index: 1
-                    border-bottom: 2px solid #dddddd
-                input.active 
-                    width: 100%
-                    padding: 0 20px
-                    opacity: 1
-                .show-search-btn
-                    opacity: 1
-                    visibility: visible
-                    z-index: 2
-                .search-btn
-                    opacity: 0
-                    visibility: hidden
-                    z-index: -1
-                .search-btn,.show-search-btn
-                    transform: translate(-10px, -45%) rotate(0deg)
-                .cancel-btn
-                    opacity: 0
-                    visibility: hidden
-                .search-btn,.cancel-btn,.show-search-btn
-                    position: absolute
-                    top: 50%
-                    right: 0
-                    transform: translate(-10px, -45%) rotate(0)
-                    cursor: pointer
-                    transition: $trn
-
-                    i
-                        font-size: 18px
-                        color: $header_c
-                        transition: $trn
-                        &:hover
-                            transition: $trn
-                            transform: scale(1.1)
-                .search-btn.active
-                    z-index: 2
-                    opacity: 1
-                    visibility: visible
-                    transform: translate(-10px, -45%) rotate(360deg)
-                    i
-                        color: #333
-                        font-size: 13px
-                .show-search-btn.active
-                    transform: translate(-10px, -45%) rotate(360deg)
-                    opacity: 0
-                    visibility: hidden
-                .cancel-btn.active
-                    transform: translate(20px, -45%) rotate(360deg)
-                    opacity: 1
-                    visibility: visible
-            .search-box.active
-                width: 100%
+            
         a
             margin: 0 10px
             i
@@ -241,6 +170,83 @@ header
                     transform: scale(1.1)
         .social a i
             font-size: 25px
+
+header .search-box
+    position: relative
+    height: 30px
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    transition: $trn
+    width: 0px
+    margin-right: 40px
+    input
+        height: 100%
+        width: 0%
+        border: none
+        background: #fff
+        font-size: 13px
+        transition: $trn
+        opacity: 0
+        z-index: 1
+        border-bottom: 2px solid #dddddd
+    input.active 
+        width: 100%
+        padding: 0 20px
+        opacity: 1
+    .show-search-btn
+        opacity: 1
+        visibility: visible
+        z-index: 2
+    .search-btn
+        opacity: 0
+        visibility: hidden
+        z-index: -1
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 100%
+        width: 40px
+    .cancel-btn
+        opacity: 0
+        visibility: hidden
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 100%
+    .search-btn,.cancel-btn,.show-search-btn
+        position: absolute
+        top: 50%
+        right: -10px
+        transform: translate(-10px, -50%) rotate(0deg)
+        cursor: pointer
+        transition: $trn
+
+        i
+            font-size: 18px
+            color: $header_c
+            transition: $trn
+            &:hover
+                transition: $trn
+                transform: scale(1.1)
+    .search-btn.active
+        z-index: 2
+        opacity: 1
+        visibility: visible
+        transform: translate(-10px, -50%) rotate(360deg)
+        i
+            color: #333
+            font-size: 13px
+    .show-search-btn.active
+        transform: translate(-10px, -50%) rotate(360deg)
+        opacity: 0
+        visibility: hidden
+    .cancel-btn.active
+        transform: translate(20px, -50%) rotate(360deg)
+        opacity: 1
+        visibility: visible
+.search-box.active
+    width: 100%
 
 .main
     display: flex
@@ -406,7 +412,7 @@ footer
         padding-left: 5%
         padding-right: 5%
     header 
-        height: 50px
+        height: 100px
         .main_header
             display: none
     header .mobile_header
@@ -441,11 +447,22 @@ footer
                 img
                     height: 75px
         .user-wrap
-            a
+            display: flex
+            justify-content: flex-end
+            width: 50%
+            align-items: center
+            i
                 color: $header_c
                 font-size: 28px
                 margin: 0 15px
 
+    header .search-box
+        height: 35px
+        input
+            font-size: 18px
+        .cancel-btn.active
+            transform: translate(35px,-45%) rotate(360deg)
+    
     .mobile_menu
         position: fixed
         padding-top: 100px
@@ -530,6 +547,8 @@ footer
         grid-template-columns: repeat(2, 1fr)
         grid-gap: 25px
 @media (max-width: 768px)
+    header .mobile_header .user-wrap
+        width: 70%
     .main 
         h2
             padding-left: 50px
@@ -554,7 +573,9 @@ footer
     
 @media (max-width: 414px)
     header 
+        height: 35px
         .mobile_header 
+            position: relative
             .header_left 
                 .burger
                     height: 50px
@@ -566,8 +587,27 @@ footer
                         img
                             height: 40px
             .user-wrap
-                a
+                i
                     font-size: 18px
+    header 
+        .search-box.active
+            width: 100%
+            background: #52616b
+            position: absolute
+            height: 100%
+            top: 0
+            right: 0
+            z-index: 4
+            padding: 10px 50px 10px 10px
+            margin-right: 0
+        .search-box 
+            margin-right: 0
+            input 
+                font-size: 13px
+            .search-btn.active
+                transform: translate(-60px,-48%) rotate(360deg)
+            .cancel-btn.active
+                transform: translate(-17px,-48%) rotate(360deg)
     .mobile_menu
         padding-top: 50px
         font-size: 14px

@@ -41,7 +41,7 @@ else if(width < 768){
 else if(width < 1024){
     $('.main_header').remove();
 }else{
-
+    $('.mobile_header').remove();
 //Desktop
 //Show drop menu
 const dropMenuBtns = document.querySelectorAll('.drop-menu-btn')
@@ -226,4 +226,9 @@ $('.search-box .cancel-btn').click(function(){
     $(this).removeClass('active');
     $('.show-search-btn').removeClass('active');
 })
-
+//Mask for phone
+$('#phone').mask("+380 (99) 999-99-99");
+//Validate poshta input
+document.querySelector('#poshta').addEventListener('keyup', function(){
+    this.value = this.value.replace(/[^\d]/g, '');
+});

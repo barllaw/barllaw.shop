@@ -199,8 +199,6 @@ $('#save_details').click(function(e){
             if(validateEmail(email))
                 {return 'Введите корректный Email';}
         }
-        if(validInput(phone, true, 8, 14))
-            {return 'Введите корректный номер телефона';}
         if(validInput(city))
             {return 'Город должен содержать не менее 3 и не больше 18 символов';}
         if(validInput(instagram))
@@ -293,8 +291,6 @@ $('#new_order').click(function(e){
             if(validateEmail(email))
                 {return 'Введите корректный Email';}
         }
-        if(validInput(phone, false, 8, 14))
-            {return 'Введите корректный номер телефона';}
         if(validInput(city, false))
             {return 'Город должен содержать не менее 3 и не больше 18 символов';}
         if(poshta == '')
