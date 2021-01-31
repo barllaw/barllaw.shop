@@ -102,16 +102,17 @@ require_once 'public/blocks/header.php';
                     <?php endif;?>
                 <?php endif;?>
                 <div class='add_to_cart-btn-wrap'><button class="btn" id="add_to_cart">Добавить в корзину</button></div>
-                <?php if($_COOKIE['login'] == 'admin'):?>
-                    <div class="supplier" style="margin-top: 5px">
-                        <p>Поставщик <?=$data['supplier']?></p>
-                    </div>
-                    <div class="admin_btns">
-                        <button class="admin_btn" id="hide_product_btn"><i class="fas fa-eye-slash"></i> Спрятать</button>
-                        <button class="admin_btn" id="not_availability"><i class="fas fa-star-half-alt"></i> Нет в наличии</button>
-                    </div>
-                <?php endif;?>
+                
             </div>
+            <?php if($_COOKIE['login'] == 'admin'):?>
+                <div class="supplier" style="margin-top: 5px">
+                    <p>Поставщик <?=$data['supplier']?></p>
+                </div>
+                <div class="admin_btns">
+                    <button class="admin_btn" id="hide_product_btn"><i class="fas fa-eye-slash"></i> Спрятать</button>
+                    <button class="admin_btn" id="not_availability"><i class="fas fa-star-half-alt"></i> Нет в наличии</button>
+                </div>
+            <?php endif;?>
         </div>
     </div>
 </div>

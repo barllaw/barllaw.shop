@@ -38,7 +38,7 @@ else if(width < 768){
         autoplaySpeed: 2000,
     });
 }
-else if(width < 1024){
+else if(width < 1025){
     $('.main_header').remove();
 }else{
     $('.mobile_header').remove();

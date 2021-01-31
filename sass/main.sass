@@ -28,7 +28,7 @@ body, html
 .over_hide
     overflow: hidden
 
-select, option
+select, option, input
     -webkit-appearance: none
     appearance: none
 
@@ -601,9 +601,9 @@ footer
     
 @media (max-width: 414px)
     header 
-        height: 35px
+        height: 50px
         .mobile_header 
-            position: relative
+            position: fixed
             .header_left 
                 .burger
                     height: 50px
@@ -617,7 +617,6 @@ footer
             .user-wrap
                 i
                     font-size: 18px
-    header 
         .search-box.active
             width: 100%
             background: #52616b
