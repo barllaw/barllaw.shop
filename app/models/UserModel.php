@@ -1,6 +1,5 @@
 <?php
 
-require 'DB.php';
 
 class UserModel
 {
@@ -69,7 +68,7 @@ class UserModel
 
     public function getFavorites($user_id)
     {
-        $result = $this->_db->query("SELECT * FROM `favorites` WHERE `user_id` = '$user_id' ORDER BY id DESC");
+        $result = $this->_db->query("SELECT * FROM `favorites` WHERE `user_id` = '$user_id' and `hidden` = '0' ORDER BY id DESC");
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -81,7 +80,7 @@ class UserModel
         if($user['login'] == '')
             return 'Пользователя не найдено';
         elseif(password_verify($pass, $user['pass']))
-            $this->setAuth($login);
+            setcookie('login', $login, time() + 3600 * 12, '/');
         else
             return 'Не верный пароль';
         return 'ok';
@@ -124,16 +123,10 @@ class UserModel
         return 'ok';
     }
 
-    
     public function setAuth($login)
     {
-
         $user = $this->getUser($login);
-
-        foreach ($user as $key => $value) {
-            setcookie($key, $value, time() + 3600, '/');
-        }
-
+        return $user;
     }
 
     public function changeStatus($status, $order_id){

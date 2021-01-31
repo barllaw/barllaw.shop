@@ -1,4 +1,5 @@
 <?php
+require 'DB.php';
 
 
 class Home extends Controller

@@ -98,7 +98,29 @@
         grid-gap: 30px
         .product-wrap
             position: relative
-            
+            #hide_product_btn, #not_availability, #availability, #delete_product
+                position: absolute
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 25px
+                height: 25px
+                border-radius: 5px
+                background: #ffffff
+                left: 5px
+                top: 5px
+                z-index: 2
+                cursor: pointer
+            #delete_product
+                width: auto
+                height: auto
+                padding: 3px 5px
+                font-size: 11px
+                top: auto
+                bottom: 65px
+                border-radius: 2px
+            #not_availability, #availability
+                left: 40px
             .product
                 display: block
                 margin-bottom: 20px

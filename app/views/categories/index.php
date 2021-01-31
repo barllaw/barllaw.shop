@@ -107,16 +107,27 @@ require_once 'public/blocks/head.php'; ?>
             $img = explode(',',$data['products'][$i]['img_path']);
         ?>
         <div class="product-wrap">
+
             <?php 
-                
                 if(isset($_COOKIE['login'])){
+
+                    if($_COOKIE['login'] == 'admin')
+                        {
+                            echo '<span id="hide_product_btn"><i class="fas fa-eye-slash"></i></span>';
+                            echo '<span id="delete_product">Удалить</span>';
+                            if($data['products'][$i]['availability'] == 1)
+                                echo '<span id="not_availability"><i class="fas fa-star-half-alt"></i></span>';
+                            else
+                                echo '<span id="availability"><i class="fas fa-star"></i></span>';
+                        }
+
                     if(in_array($data['products'][$i]['id'], $data['favorite'])){
                         echo '<span class="favorite_btn favorites-icon" id="remove_favorite"><i class="fas fa-heart"></i></span>';
                     }else{
                         echo '<span class="favorite_btn favorites-icon" id="add_to_favorites"><i class="far fa-heart"></i></span>';
                     }
-}            ?>
-            <a href="/product/<?=$data['products'][$i]['id'] ?>" class="product">
+            }?>
+            <a href="/product/<?=$data['products'][$i]['id'] ?>" class="product <?php if($data['products'][$i]['availability'] == 0){echo 'not_availability';}?>">
                 
                 <div class="image">
                     <img src="/public/img/<?=$data['products'][$i]['art'].'/'.$img[0]?>" alt="Товар">

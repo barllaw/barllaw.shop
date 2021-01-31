@@ -61,62 +61,24 @@
             margin-top: 10px
             .btn 
                 width: 200px
+        .admin_btns
+            display: flex
+            flex-direction: column
+            margin-top: 15px
+            .admin_btn
+                width: 25%
+                text-align: center
+                padding: 5px
+                border: none
+                background: orange
+                font-weight: bold
+                letter-spacing: 1px
+                margin-top: 5px
+                text-transform: uppercase
+                cursor: pointer
+                font-size: 11px
+                color: #fff
 
-    
-
-.add_product-main
-    padding-top: 30px
-    .error
-        text-align: center
-        font-weight: bold
-        background: #ff6161
-        width: 50%
-        margin: 20px auto 0 auto
-        letter-spacing: .5px
-        color: #fff
-        padding: 10px
-    form
-        display: grid
-        grid-template-columns: repeat(2, 1fr)
-        width: 60%
-        margin: auto
-        padding: 40px 0
-        label
-            margin-bottom: 3px
-        
-        input, select
-            margin-bottom: 10px
-            padding: 5px 10px
-            border: 1px solid #ccc
-        button
-            margin-top: 20px
-        .chous
-            width: 100%
-            padding: 5px    
-            text-align: center
-            margin-bottom: 10px
-            cursor: pointer
-            display: block
-            transition: all 0.18s ease-in-out
-            border: 1px solid $error
-            color:  $error
-            font-size: 12px
-        #images
-            width: 0.1px
-            height: 0.1px
-            opacity: 0
-            overflow: hidden
-            position: absolute
-            z-index: -1
-        .success_image
-            background: $success
-            color: #fff
-            border: 1px solid $success
-        .require
-            border: 1px solid $error
-        .alert
-            border: 1px solid #ffd361
-        
 
 @media (max-width: 1024px)
     .product-main

@@ -1,4 +1,5 @@
 <?php
+require 'DB.php';
 
 
 class User extends Controller
@@ -22,10 +23,12 @@ class User extends Controller
     public function auth()
     {
         $data = [];
+        $user = $this->model('UserModel');
+
         if($_POST['auth']){
-            $user = $this->model('UserModel');
             exit($user->auth($_POST['login'], $_POST['pass']));
         }
+
 
         $this->view('user/auth', $data);
     }
@@ -33,6 +36,7 @@ class User extends Controller
     public function dashboard($params = '')
     {
         $user = $this->model('UserModel');
+        $products = $this->model('Products');
 
         if($_POST['change_status']){
             $user->changeStatus($_POST['status'], $_POST['order_id']);
@@ -52,18 +56,24 @@ class User extends Controller
             );
         }
         
-        $data['orders'] = $user->getMyOrders($_COOKIE['id']);
-        $data['all_users'] = $user->getAllUsers();
-        $data['all_orders'] = $user->getAllOrders();
-        $data['favorites'] = $user->getFavorites($_COOKIE['id']);
+        $data['user'] = $user->setAuth($_COOKIE['login']);
+
+        if($_COOKIE['login'] == 'admin'){
+            $data['all_users'] = $user->getAllUsers();
+            $data['all_orders'] = $user->getAllOrders();
+            $data['hidden_products'] = $products->getHiddenProducts();
+            $data['all_suppliers'] = $products->getSuppliers();
+        }else{
+            $data['orders'] = $user->getMyOrders($data['user']['id']);
+            $data['favorites'] = $user->getFavorites($data['user']['id']);
+        }
+
         $this->view('user/dashboard', $data, $params);
     }
 
     public function logout()
     {
-        foreach($_COOKIE as $key => $val){
-            setcookie($key, $val, time() - 3600, '/');
-        }
+        setcookie('login', $_COOKIE['login'], time() - 3600 * 12, '/');
         header('Location: /');
     }
 }

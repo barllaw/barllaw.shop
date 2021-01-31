@@ -1,5 +1,4 @@
-<?php session_start();
-require 'DB.php';
+<?php
 class BasketModel
 {
     private $s_name = 'cart';
@@ -133,7 +132,7 @@ class BasketModel
         return 'ok';
     }
 
-    public function addToFavorites( $img, $product_id, $title, $price)
+    public function addToFavorites( $user_id, $img, $product_id, $title, $price)
     {
 
         $sql = "INSERT INTO `favorites`(
@@ -142,7 +141,7 @@ class BasketModel
         $query = $this->_db->prepare($sql);
 
         $query->execute([
-            $_COOKIE['id'],
+            $user_id,
             $product_id,
             $title,
             $price,
@@ -151,14 +150,14 @@ class BasketModel
         exit($product_id);
     }
     
-    public function removeFavorite($product_id)
+    public function removeFavorite($product_id, $user_id)
     {
         $sql = "DELETE FROM `favorites` WHERE `product_id` = ? and `user_id` = ? ";
         $query = $this->_db->prepare($sql);
 
         $query->execute([
             $product_id,
-            $_COOKIE['id']
+            $user_id
         ]);
     }
 

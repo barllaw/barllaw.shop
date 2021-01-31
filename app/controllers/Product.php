@@ -1,14 +1,24 @@
 <?php
+require 'DB.php';
 
 
 class Product extends Controller
 {
     public function index($id)
     {
-        $product = $this->model('Products');
-        $data = $product->getOneProduct($id);
+        $products = $this->model('Products');
+        $user = $this->model('UserModel');
+        $data = $products->getOneProduct($id);
         $data['favorite'] = '';
-        $result = $product->favExist($id);
+        if(isset($_COOKIE['login']))
+            $data['user'] = $user->setAuth($_COOKIE['login']);
+
+        
+
+        $result = $products->favExist(
+            $id,
+            $data['user']['id']
+        );
         if($result != [])
             $data['favorite'] = 'true';
         

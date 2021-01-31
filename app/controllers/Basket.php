@@ -1,10 +1,14 @@
 <?php
-
+require 'DB.php';
 class Basket extends Controller
 {
     public function index()
     {
         $cart = $this->model('BasketModel');
+        $user = $this->model('UserModel');
+        if(isset($_COOKIE['login']))
+            $data['user'] = $user->setAuth($_COOKIE['login']);
+        
         $data['products'] = [];
 
         
@@ -32,6 +36,7 @@ class Basket extends Controller
 
         if($_POST['add_to_fav']){
             $cart->addToFavorites(
+                $data['user']['id'],
                 $_POST['product_img'],
                 $_POST['product_id'],
                 $_POST['product_title'],
@@ -40,7 +45,10 @@ class Basket extends Controller
         }
 
         if($_POST['remove_fav']){
-            $cart->removeFavorite($_POST['product_id']);
+            $cart->removeFavorite(
+                $_POST['product_id'],
+                $data['user']['id']
+            );
         }
         
         $this->view('basket/index', $data);
@@ -50,8 +58,12 @@ class Basket extends Controller
 
     public function checkout()
     {
-        $cart = $this->model('BasketModel');
         $data = [];
+        $cart = $this->model('BasketModel');
+        $user = $this->model('UserModel');
+        if(isset($_COOKIE['login']))
+            $data['user'] = $user->setAuth($_COOKIE['login']);
+        
         if($_POST['new_order']){
             $result = $cart->newOrder(
                  $_POST['user_id'],

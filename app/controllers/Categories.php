@@ -1,4 +1,5 @@
 <?php
+require 'DB.php';
 
 
 class Categories extends Controller
@@ -10,6 +11,29 @@ class Categories extends Controller
 
         if($_POST['search']){
             exit($products->getIdWithArt($_POST['art']));
+        }
+
+        if($_POST['hide']){
+            $products->hideProduct($_POST['product_id']);
+        }
+        if($_POST['availability']){
+            $products->availability($_POST['product_id']);
+        }
+        if($_POST['not_availability']){
+            $products->notAvailability($_POST['product_id']);
+        }
+        if($_POST['delete_product']){
+            $files = $products->getProductFiles($_POST['product_id']);
+            exit($products->deleteProduct( $_POST['product_id'], $files, $_POST['dir'] ));
+        }
+        if($_POST['active_product']){
+            exit($products->activeProduct($_POST['product_id']));
+        }
+        if($_POST['add_supplier']){
+            $products->addSupplier($_POST['supplier']);
+        }
+        if($_POST['delete_supplier']){
+            $products->deleteSupplier($_POST['supplier']);
         }
 
         $data['page'] = 'clothes';
@@ -187,9 +211,12 @@ class Categories extends Controller
     public function checkFavoriteProduct($array)
     {
         $products = $this->model('Products');
+        $user = $this->model('UserModel');
+        $data['user'] = $user->setAuth($_COOKIE['login']);
+
         $fav_result = [];
         foreach ($array as $key ) {
-            $result = $products->favExist($key['id']);
+            $result = $products->favExist($key['id'], $data['user']['id']);
             if($result != []){
                 $fav_result[] = $key['id'];
             }

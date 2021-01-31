@@ -94,6 +94,20 @@ input[name='made_in'],input[name='name'],input[name='lastname'],input[name='fath
     font-weight: bold
     font-size: 15px
     color: #555
+.not_availability
+    opacity: .5
+    pointer-events: none
+    &::before
+        content: 'Нет в наличии'
+        position: absolute
+        z-index: 2
+        top: 40%
+        left: 25%
+        color: #ffffff
+        font-weight: bold
+        text-shadow: 0 0 10px #000
+        letter-spacing: 1px
+
 header
     .main_header
         background: $main_c
@@ -158,7 +172,21 @@ header
             width: 40%
             align-items: center
             padding: 0 5% 0 0
-            
+        .basket_icon 
+            position: relative
+            span
+                position: absolute
+                top: -5px
+                right: -7px
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 15px
+                height: 15px
+                border-radius: 50%
+                font-size: 10px
+                background: $success
+                color: #fff
         a
             margin: 0 10px
             i

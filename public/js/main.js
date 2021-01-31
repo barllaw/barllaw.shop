@@ -145,6 +145,7 @@ $('#category').change(function(){
     if($(this).val() == 'outerwear'){
         //Outerwear
         $(sub_cat).html(`
+            <option value="none">Не выбрано</option>
             <option value="winter-jackets">Зимние куртки</option>
             <option value="coats">Пальта</option>
             <option value="jackets">Куртки</option>
@@ -155,12 +156,14 @@ $('#category').change(function(){
     else if($(this).val() == 'sweaters'){
         //Sweaters
         $(sub_cat).html(`
+            <option value="none">Не выбрано</option>
             <option value="hoodies">Худи</option>
             <option value="sweatshirts">Свитшоты</option>
     `)}
     else if($(this).val() == 'pants'){
         //Pants
         $(sub_cat).html(`
+            <option value="none">Не выбрано</option>
             <option value="jeans">Джинсы</option>
             <option value="sport-pants">Спорт штаны</option>
             <option value="pants">Брюки</option>
@@ -168,27 +171,37 @@ $('#category').change(function(){
     else if($(this).val() == 'shoes'){
         //sports_suit
         $(sub_cat).html(`
+            <option value="none">Не выбрано</option>
             <option value="sneakers">Кроссовки</option>
             <option value="nike">Nike</option>
             <option value="adidas">Adidas</option>
-            <option value="puma">Puma</option>
+            <option value="new-balance">New balance</option>
     `)}
     else if($(this).val() == 'sports_suit'){
         //Pants
         $(sub_cat).html(`
-            <option value="">none</option>
+            <option value="">Нету</option>
     `)}
     else if($(this).val() == 'shirts'){
         //shoes
         $(sub_cat).html(`
-            <option value="">none</option>
+            <option value="">Нету</option>
     `)}
     else if($(this).val() == 'accessories'){
         //accessories
         $(sub_cat).html(`
+            <option value="">none</option>
             <option value="backpack">Рюкзаки</option>
             <option value="bag">Сумки</option>
     `)
+    }
+})
+$(sub_cat).change(function(){
+    if($('#category').val() == 'shoes'){
+        if( $(this).val() != 'sneakers' && $(this).val() != 'none' ){
+            $('#target_cat').val($(this).val())
+            $(this).val('sneakers')
+        }
     }
 })
 
@@ -203,6 +216,9 @@ $('#images').change(function() {
 });
 
 $('#new_product_form input[type="text"]').change(function(){
+    $(this).removeClass('require');
+})
+$('#new_product_form select').change(function(){
     $(this).removeClass('require');
 })
 

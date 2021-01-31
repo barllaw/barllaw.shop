@@ -48,6 +48,13 @@ $('#add_to_cart').click(function(e){
                 'supplier': supplier
             },
             success: function(response){
+                if($('.basket_icon span').text() == ''){
+                    $('.basket_icon').append('<span>1</span/')
+                }else{
+                    currentItem = Number($('.basket_icon span').text());
+                    countItem = currentItem + 1;
+                    $('.basket_icon span').text(countItem)
+                }
                 $('#add_to_cart').css('background', '#62d07a');
                 $('select').css('border', '1px solid #00000050');
                 $('#add_to_cart').text('Добавлен');
@@ -426,6 +433,15 @@ $('#new_product').click(function(e){
         if(price == ''){
             return 'Введите цену';
         }
+        if(category == 'none'){
+            return 'Введите категорию';
+        }
+        if(sub_cat == 'none'){
+            return 'Введите саб категорию';
+        }
+        if(supplier == 'none'){
+            return 'Введите поставщика';
+        }
         return 'ok';
     }
 
@@ -504,3 +520,121 @@ $('#search_btn').click(function(){
     })
     
 })
+
+// Hide product
+let btn_hide = document.querySelectorAll('#hide_product_btn');
+for(let i = 0; i < btn_hide.length; i++){
+    $(btn_hide[i]).click(function(){
+        id = product_id[i].value;
+
+        $.ajax({
+            url: '/categories/',
+            type: 'POST',
+            data: {
+                'hide': true,
+                'product_id': id
+            },
+            chache: false,
+            success: function(response){
+                location.reload();
+            }
+            
+        })
+    })
+}
+
+// Not availability
+let btn_not_availability = document.querySelectorAll('#not_availability');
+for(let i = 0; i < btn_not_availability.length; i++){
+    $(btn_not_availability[i]).click(function(){
+        id = product_id[i].value;
+        $.ajax({
+            url: '/categories/',
+            type: 'POST',
+            data: {
+                'not_availability': true,
+                'product_id': id
+            },
+            chache: false,
+            success: function(response){
+                location.reload();
+            }
+            
+        })
+    })
+}
+// Availability
+let btn_availability = document.querySelectorAll('#availability');
+let not_avai_product_id = document.querySelectorAll('.not_availability #product_id');
+for(let i = 0; i < btn_availability.length; i++){
+    $(btn_availability[i]).click(function(){
+        id = not_avai_product_id[i].value;
+        $.ajax({
+            url: '/categories/',
+            type: 'POST',
+            data: {
+                'availability': true,
+                'product_id': id
+            },
+            chache: false,
+            success: function(response){
+                location.reload();
+            }
+            
+        })
+    })
+}
+
+// Delete product
+let delete_product_btn = document.querySelectorAll('#delete_product');
+let img_src = document.querySelectorAll('.product-wrap img');
+for(let i = 0; i < delete_product_btn.length; i++){
+    $(delete_product_btn[i]).click(function(){
+        id = product_id[i].value;
+        dir = img_src[i].src.slice(18, -1);
+        $.ajax({
+            url: '/categories/',
+            type: 'POST',
+            data: {
+                'delete_product': true,
+                'product_id': id,
+                'dir': dir
+            },
+            chache: false,
+            success: function(response){
+                if(response == 'ok'){
+                    location.reload();
+                }else{
+                    console.log(response);
+                }
+            }
+            
+        })
+    })
+}
+
+// Delete product
+let active_product = document.querySelectorAll('#active_product');
+let hidden_product_id = document.querySelectorAll('#product_id');
+for(let i = 0; i < active_product.length; i++){
+    $(active_product[i]).click(function(){
+        id = $(hidden_product_id[i]).text();
+        $.ajax({
+            url: '/categories/',
+            type: 'POST',
+            data: {
+                'active_product': true,
+                'product_id': id
+            },
+            chache: false,
+            success: function(response){
+                if(response == 'ok'){
+                    location.reload();
+                }else{
+                    console.log(response);
+                }
+            }
+            
+        })
+    })
+}

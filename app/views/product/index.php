@@ -7,7 +7,7 @@ require_once 'public/blocks/head.php'; ?>
 <?php 
 require_once 'public/blocks/header.php';
 ?>
-
+<?php if (isset($data['id'])):?>
 <div class="product-main content">
     <div class="wrapper">
         <?php 
@@ -102,11 +102,24 @@ require_once 'public/blocks/header.php';
                     <?php endif;?>
                 <?php endif;?>
                 <div class='add_to_cart-btn-wrap'><button class="btn" id="add_to_cart">Добавить в корзину</button></div>
+                <?php if($_COOKIE['login'] == 'admin'):?>
+                    <div class="supplier" style="margin-top: 5px">
+                        <p>Поставщик <?=$data['supplier']?></p>
+                    </div>
+                    <div class="admin_btns">
+                        <button class="admin_btn" id="hide_product_btn"><i class="fas fa-eye-slash"></i> Спрятать</button>
+                        <button class="admin_btn" id="not_availability"><i class="fas fa-star-half-alt"></i> Нет в наличии</button>
+                    </div>
+                <?php endif;?>
             </div>
         </div>
     </div>
 </div>
-
+<?php else:?>
+<div class="hidden_product" style='padding: 20px 0 30% 100px'>
+    <h2>Товар на данный момент не доступен!</h2>
+</div>
+<?php endif;?>
 <?php require_once 'public/blocks/footer.php'; ?>
 </body>
 </html>

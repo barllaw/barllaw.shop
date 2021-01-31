@@ -8,7 +8,6 @@ require_once 'public/blocks/head.php'; ?>
 ?>
 
 <div class="basket-main content">
-    
 
         <?php if(!isset($_SESSION['cart'])):?>
             <div class="empty-basket">

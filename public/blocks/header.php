@@ -114,7 +114,14 @@
                 <div class="cancel-btn"><i class="fas fa-times"></i></div>
 
             </div>
-            <a href="/basket"><i class="fas fa-shopping-cart"></i></a>
+            <a href="/basket" class='basket_icon'>
+                <i class="fas fa-shopping-cart"></i>
+                <?php 
+                if(isset($_SESSION['cart']))
+                    if(count($_SESSION['cart']) > 0 ):?>
+                <span><?=count($_SESSION['cart'])?></span>
+                <?php endif;?>
+            </a>
             <?php 
                 if($_COOKIE['login']){
                     echo '<a href="/user/dashboard/favorites"><i class="fas fa-heart"></i></a>';
