@@ -613,7 +613,7 @@ for(let i = 0; i < delete_product_btn.length; i++){
     })
 }
 
-// Delete product
+// Active product
 let active_product = document.querySelectorAll('#active_product');
 let hidden_product_id = document.querySelectorAll('#product_id');
 for(let i = 0; i < active_product.length; i++){
