@@ -405,6 +405,15 @@ $('#new_product').click(function(e){
     e.preventDefault();
     formData = new FormData();
 
+    size_array = document.querySelectorAll(".size:checked");
+    for(let i = 0; i < size_array.length; i++){
+        if(i == 0){
+            size = size_array[i].value;
+        }else{
+            size += ',' + size_array[i].value;
+        }
+    }
+
     title = $('#title').val()
     art = $('#art').val()
     material = $('#material').val()
@@ -458,6 +467,7 @@ $('#new_product').click(function(e){
     formData.append('temp', temp);
     formData.append('more_param', more_param);
     formData.append('color', color);
+    formData.append('size', size);
     formData.append('price', price);
     formData.append('category', category);
     formData.append('sub_cat', sub_cat);

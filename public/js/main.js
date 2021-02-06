@@ -169,21 +169,30 @@ $('#category').change(function(){
             <option value="pants">Брюки</option>
     `)}
     else if($(this).val() == 'shoes'){
-        //sports_suit
+        //shoes
         $(sub_cat).html(`
             <option value="none">Не выбрано</option>
             <option value="sneakers">Кроссовки</option>
             <option value="nike">Nike</option>
             <option value="adidas">Adidas</option>
             <option value="new-balance">New balance</option>
-    `)}
+    `)
+        $("#size").html(`
+            <span><input type="checkbox" class="size" checked value="40"> 40</span>
+            <span><input type="checkbox" class="size" checked value="41"> 41</span>
+            <span><input type="checkbox" class="size" checked value="42"> 42</span>
+            <span><input type="checkbox" class="size" checked value="43"> 43</span>
+            <span><input type="checkbox" class="size" checked value="44"> 44</span>
+            <span><input type="checkbox" class="size" checked value="45"> 45</span>
+        `)
+}
     else if($(this).val() == 'sports_suit'){
-        //Pants
+        //Sports_suit
         $(sub_cat).html(`
             <option value="">Нету</option>
     `)}
     else if($(this).val() == 'shirts'){
-        //shoes
+        //shirts
         $(sub_cat).html(`
             <option value="">Нету</option>
     `)}
@@ -202,6 +211,27 @@ $(sub_cat).change(function(){
             $('#target_cat').val($(this).val())
             $(this).val('sneakers')
         }
+    }
+    if($(sub_cat).val() == 'pants' || $(sub_cat).val() == 'jeans'){
+        $("#size").html(`
+            <span><input type="checkbox" class="size" checked value="29"> 29</span>
+            <span><input type="checkbox" class="size" checked value="30"> 30</span>
+            <span><input type="checkbox" class="size" checked value="31"> 31</span>
+            <span><input type="checkbox" class="size" checked value="32"> 32</span>
+            <span><input type="checkbox" class="size" checked value="33"> 33</span>
+            <span><input type="checkbox" class="size" checked value="34"> 34</span>
+            <span><input type="checkbox" class="size" checked value="35"> 35</span>
+            <span><input type="checkbox" class="size" checked value="36"> 36</span>
+    `)
+    }else if ($('#category').val() != 'shoes'){
+        $("#size").html(`
+            <span><input type="checkbox" class="size" checked value="XS"> XS</span>
+            <span><input type="checkbox" class="size" checked value="S"> S</span>
+            <span><input type="checkbox" class="size" checked value="M"> M</span>
+            <span><input type="checkbox" class="size" checked value="L"> L</span>
+            <span><input type="checkbox" class="size" checked value="XL"> XL</span>
+            <span><input type="checkbox" class="size" value="XXL"> XXL</span>
+    `)
     }
 })
 

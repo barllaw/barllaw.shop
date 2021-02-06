@@ -42,7 +42,7 @@ class Products
 
 
     public function addProduct($title, $art, $material, $made_in, $temp, $more_param,
-         $color, $img, $price, $category, $sub_cat, $target_cat, $supplier)
+         $color, $size, $img, $price, $category, $sub_cat, $target_cat, $supplier)
     {
 
         if($art == 'new'){
@@ -68,13 +68,13 @@ class Products
                 $img_path .= ','.$img['name'][$i];
         }
         $sql = "INSERT INTO products(
-                    title, art, material, made_in, temp, more_param, color,
+                    title, art, material, made_in, temp, more_param, color, size,
                 img_path, price, category, sub_cat, target_cat, supplier) 
-                VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+                VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
         $query = $this->_db->prepare($sql);
 
         $query->execute([ 
-            $title, $art, $material, $made_in, $temp, $more_param, $color, $img_path,
+            $title, $art, $material, $made_in, $temp, $more_param, $color, $size, $img_path,
              $price, $category, $sub_cat, $target_cat, $supplier 
             ]);
 

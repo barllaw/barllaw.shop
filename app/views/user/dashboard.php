@@ -122,26 +122,36 @@ if($_COOKIE['login'] == 'admin'):
                 
                 <form id="new_product_form" action="/product/addProduct" method="post" enctype="multipart/form-data">
                     <label for="title">Название</label>
-                    <input class="require"  id="title" value="<?=$_POST['title']?>" type="text" name="title" placeholder="">
+                    <input class="require"  id="title" type="text" name="title" placeholder="">
 
                     <label for="art">Артикул</label>
-                    <input class="require"  id="art" value="<?=$_POST['art']?>" type="text" name="art" placeholder="">
+                    <input class="require"  id="art" type="text" name="art" placeholder="">
 
                     <label for="material">Материал</label>
-                    <input id="material" value="<?=$_POST['material']?>" type="text" name="material" placeholder="">
+                    <input id="material"  type="text" name="material" placeholder="">
 
                     <label for="made_in">Производство</label>
-                    <input id="made_in" value="Турция<?=$_POST['made_in']?>" type="text" name="made_in" placeholder="">
+                    <input id="made_in" type="text" name="made_in" placeholder="">
 
                     <label for="temp">Температурный режим</label>
-                    <input id="temp" value="<?=$_POST['temp']?>" type="text" name="temp" placeholder="">
+                    <input id="temp"  type="text" name="temp" placeholder="">
 
                     <label for="more_param">Допольнительно</label>
-                    <input id="more_param" value="<?=$_POST['more_param']?>" type="text" name="more_param" placeholder="">
+                    <input id="more_param"  type="text" name="more_param" placeholder="">
 
                     <label for="color">Цвет</label>
-                    <input id="color" value="<?=$_POST['color']?>" type="text" name="color" placeholder="">
+                    <input id="color" type="text" name="color" placeholder="">
 
+                    <label for="size">Размер</label>
+                    <p id="size">
+                        <span><input type="checkbox" class="size" checked value="XS"> XS</span>
+                        <span><input type="checkbox" class="size" checked value="S"> S</span>
+                        <span><input type="checkbox" class="size" checked value="M"> M</span>
+                        <span><input type="checkbox" class="size" checked value="L"> L</span>
+                        <span><input type="checkbox" class="size" checked value="XL"> XL</span>
+                        <span><input type="checkbox" class="size" value="XXL"> XXL</span>
+                    </p>
+                    
                     <p>Изображения</p>
                     <div>
                         <label for="images" class="chous">Добавить...</label>
@@ -149,7 +159,7 @@ if($_COOKIE['login'] == 'admin'):
                     </div>
 
                     <label for="price">Цена</label>
-                    <input class="require"  id="price" value="<?=$_POST['price']?>" type="text" name="price" placeholder="">
+                    <input class="require"  id="price" type="text" name="price" placeholder="">
 
                     <label for="category">Категория</label>
                     <select class="require"  id="category" name="category">
@@ -176,7 +186,7 @@ if($_COOKIE['login'] == 'admin'):
                     </select>
 
                     <label for="supplier">Таргет кат.</label>
-                    <input id="target_cat" value="<?=$_POST['target_cat']?>" type="text" name="target_cat" placeholder="">
+                    <input id="target_cat"  type="text" name="target_cat" placeholder="">
 
                     <label for="supplier">Поставщик</label>
                     <select class="require"  id="supplier" name="supplier">

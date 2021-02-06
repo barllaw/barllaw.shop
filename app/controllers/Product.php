@@ -37,6 +37,7 @@ class Product extends Controller
                 $_POST['temp'],
                 $_POST['more_param'],
                 $_POST['color'],
+                $_POST['size'],
                 $_FILES['images'],
                 $_POST['price'],
                 $_POST['category'],

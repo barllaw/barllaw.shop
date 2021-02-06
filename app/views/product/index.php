@@ -44,41 +44,17 @@ require_once 'public/blocks/header.php';
                     .$data['more_param'].'</p>';
             ?>
             <p>
-                <?php if($data['category'] == 'shoes'):?>
-                    <select name="size" id="size">
-                        <option value="none">Выберете размер</option>
-                        <option value="40">40</option>
-                        <option value="41">41</option>
-                        <option value="42">42</option>
-                        <option value="43">43</option>
-                        <option value="44">44</option>
-                        <option value="45">45</option>
-                    </select>
-                <?php elseif($data['category'] == 'accessories'):?>
+                <?php if($data['category'] == 'accessories'):?>
                     <div  id="size"></div>
                 <?php else:?>
-                    <?php if($data['sub_cat'] == 'jeans' or $data['sub_cat'] == 'pants'):?>
-                        <select name="size" id="size">
-                            <option value="none">Выберете размер</option>
-                            <option value="29">29</option>
-                            <option value="30">30</option>
-                            <option value="31">31</option>
-                            <option value="32">32</option>
-                            <option value="33">33</option>
-                            <option value="34">34</option>
-                            <option value="35">35</option>
-                            <option value="36">36</option>
-                        </select>
-                    <?php else:?>
-                        <select name="size" id="size">
-                            <option value="none">Выберете размер</option>
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                        </select>
-                    <?php endif;?>
+                    <select name="size" id="size">
+                        <option value="none">Выберете размер</option>
+                        <?php 
+                        $size = explode(',', $data['size']);
+                        foreach($size as $key):?>
+                        <option value="<?=$key?>"><?=$key?></option>
+                        <?php endforeach;?>
+                    </select>
                 <?php endif;?>
             <br>
             <p style="opacity: .6; font-size: 13px;">Доставка от 2 до 4 дней.</p>
